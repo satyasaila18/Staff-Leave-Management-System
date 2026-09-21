@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SLMS | Login</title>
+
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:Arial, Helvetica, sans-serif;
+        }
+
+        body{
+            height:100vh;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            background:linear-gradient(135deg,#667eea,#764ba2);
+        }
+
+        div{
+            width:420px;
+            background:white;
+            padding:35px;
+            border-radius:15px;
+            box-shadow:0 10px 25px rgba(0,0,0,0.2);
+        }
+
+        h1{
+            color:#4c1d95;
+            margin-bottom:8px;
+        }
+
+        h2{
+            color:#666;
+            margin-bottom:30px;
+            font-size:20px;
+        }
+
+        label{
+            display:block;
+            text-align:left;
+            margin-bottom:5px;
+            font-weight:bold;
+            color:#444;
+        }
+
+        input{
+            width:100%;
+            padding:10px;
+            border:1px solid #ccc;
+            border-radius:6px;
+            margin-bottom:15px;
+            outline:none;
+        }
+
+        input:focus{
+            border-color:#764ba2;
+        }
+
+        button{
+            width:100%;
+            padding:12px;
+            background:#764ba2;
+            color:white;
+            border:none;
+            border-radius:6px;
+            cursor:pointer;
+            font-size:16px;
+            transition:.3s;
+        }
+
+        button:hover{
+            background:#5b21b6;
+        }
+
+        p{
+            margin-top:18px;
+            color:#555;
+        }
+
+        a{
+            text-decoration:none;
+            color:#5b21b6;
+            font-weight:bold;
+        }
+
+        a:hover{
+            text-decoration:underline;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div>
+        <center>
+            <h1>SLMS Login</h1>
+            <h2>Staff Leave Management System</h2>
+
+            <form method="POST">
+                {% csrf_token %}
+
+                <label>Username</label>
+                <input type="text" name="username" placeholder="Enter username" required>
+
+                <label>Password</label>
+                <input type="password" name="password" placeholder="Enter password" required>
+
+                <p>Admin can manage staff and approve leave requests.</p>
+                <br>
+
+                <button type="submit">Login</button>
+            </form>
+
+            <p>
+                Doesn't have an account?
+                <a href="{% url 'register' %}">Register</a>
+            </p>
+
+            <p>
+                <a href="{% url 'home' %}">Back to Home</a>
+            </p>
+        </center>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Leave Applications</title>
+
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:Arial, Helvetica, sans-serif;
+        }
+
+        body{
+            background:linear-gradient(135deg,#eef2ff,#dbeafe,#f8fafc);
+            min-height:100vh;
+            padding:40px;
+        }
+
+        .container{
+            width:90%;
+            max-width:1000px;
+            margin:auto;
+            background:white;
+            padding:30px;
+            border-radius:15px;
+            box-shadow:0 8px 20px rgba(0,0,0,0.15);
+        }
+
+        h2{
+            text-align:center;
+            color:#1e3a8a;
+            margin-bottom:25px;
+        }
+
+        table{
+            width:100%;
+            border-collapse:collapse;
+        }
+
+        th{
+            background:#1e3a8a;
+            color:white;
+            padding:12px;
+        }
+
+        td{
+            padding:12px;
+            text-align:center;
+            border-bottom:1px solid #ddd;
+        }
+
+        tr:hover{
+            background:#f8fafc;
+        }
+
+        .pending{
+            color:#d97706;
+            font-weight:bold;
+        }
+
+        .approved{
+            color:#16a34a;
+            font-weight:bold;
+        }
+
+        .rejected{
+            color:#dc2626;
+            font-weight:bold;
+        }
+
+        .back{
+            display:inline-block;
+            margin-top:20px;
+            text-decoration:none;
+            background:#2563eb;
+            color:white;
+            padding:10px 20px;
+            border-radius:8px;
+            transition:0.3s;
+        }
+
+        .back:hover{
+            background:#1e3a8a;
+        }
+
+        .empty{
+            text-align:center;
+            color:#666;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <h2>My Leave Applications</h2>
+
+    <table>
+        <tr>
+            <th>Leave Type</th>
+            <th>Start Date</th>
+            <th>End Date</th>
+            <th>Reason</th>
+            <th>Status</th>
+        </tr>
+
+        {% for i in leaves %}
+        <tr>
+            <td>{{ i.leave_type }}</td>
+            <td>{{ i.start_date }}</td>
+            <td>{{ i.end_date }}</td>
+            <td>{{ i.reason }}</td>
+
+            <td>
+                {% if i.status == 'Pending' %}
+                    <span class="pending">Pending</span>
+                {% elif i.status == 'Approved' %}
+                    <span class="approved">Approved</span>
+                {% else %}
+                    <span class="rejected">Rejected</span>
+                {% endif %}
+            </td>
+        </tr>
+
+        {% empty %}
+        <tr>
+            <td colspan="5" class="empty">
+                No Leave Applications Found
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <a href="{% url 'staff_dashboard' %}" class="back">
+        ← Back to Dashboard
+    </a>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SLMS | Admin Dashboard</title>
+
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:Arial, Helvetica, sans-serif;
+        }
+
+        body{
+            background:linear-gradient(135deg,#eef2ff,#dbeafe,#f8fafc);
+            min-height:100vh;
+        }
+
+        nav{
+            background:#1e3a8a;
+            color:white;
+            padding:18px 50px;
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            box-shadow:0 4px 10px rgba(0,0,0,0.15);
+        }
+
+        nav h2{
+            font-size:28px;
+        }
+
+        .nav-links{
+            display:flex;
+            gap:20px;
+        }
+
+        nav a{
+            text-decoration:none;
+            color:white;
+            padding:10px 15px;
+            border-radius:8px;
+            transition:0.3s;
+        }
+
+        nav a:hover{
+            background:white;
+            color:#1e3a8a;
+        }
+
+        .container{
+            width:90%;
+            margin:50px auto;
+            display:flex;
+            justify-content:center;
+            gap:30px;
+            flex-wrap:wrap;
+        }
+
+        .card{
+            width:350px;
+            background:white;
+            padding:30px;
+            border-radius:15px;
+            box-shadow:0 8px 20px rgba(0,0,0,0.15);
+            text-align:center;
+            transition:0.3s;
+        }
+
+        .card:hover{
+            transform:translateY(-8px);
+            box-shadow:0 12px 25px rgba(0,0,0,0.2);
+        }
+
+        .card h3{
+            color:#1e3a8a;
+            margin-bottom:15px;
+        }
+
+        .card p{
+            color:#555;
+            margin-bottom:20px;
+        }
+
+        .card a{
+            display:inline-block;
+            text-decoration:none;
+            background:#2563eb;
+            color:white;
+            padding:10px 20px;
+            border-radius:8px;
+            transition:0.3s;
+        }
+
+        .card a:hover{
+            background:#1e3a8a;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <h2>SLMS Admin Dashboard</h2>
+
+        <div class="nav-links">
+            <a href="{% url 'view_leaves' %}">View Leave Requests</a>
+            <a href="{% url 'login' %}">Logout</a>
+        </div>
+    </nav>
+
+    <div class="container">
+
+        <div class="card">
+            <h3>Total Leave Requests</h3>
+            <p>Manage and review all staff leave requests.</p>
+            <a href="{% url 'view_leaves' %}">Open</a>
+        </div>
+
+        <div class="card">
+            <h3>Staff Management</h3>
+            <p>View, manage, and monitor registered staff users.</p>
+            <a href="{% url 'manage_staff' %}">Manage Staff</a>
+        </div>
+
+    </div>
+
+</body>
+</html>

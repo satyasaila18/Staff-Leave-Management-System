@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SLMS Home</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(-45deg,#2193b0,#6dd5ed,#3494e6,#00c6ff);
+    background-size:400% 400%;
+    animation:bgAnimation 12s ease infinite;
+}
+
+.container{
+    width:450px;
+    background:white;
+    padding:50px;
+    border-radius:20px;
+    text-align:center;
+    box-shadow:0 15px 40px rgba(0,0,0,.25);
+    animation:cardAnimation 2s ease;
+}
+
+h1{
+    font-size:55px;
+    color:#0077b6;
+    margin-bottom:10px;
+    letter-spacing:3px;
+    animation:fadeDown 1.5s;
+}
+
+p{
+    font-size:20px;
+    color:#555;
+    margin-bottom:40px;
+    animation:fadeUp 2s;
+}
+
+a{
+    display:inline-block;
+    width:150px;
+    padding:14px;
+    margin:8px;
+    text-decoration:none;
+    color:white;
+    font-size:18px;
+    font-weight:bold;
+    border-radius:30px;
+    transition:.4s;
+}
+
+a:first-of-type{
+    background:#0077b6;
+}
+
+a:last-of-type{
+    background:#2a9d8f;
+}
+
+a:hover{
+    transform:translateY(-5px) scale(1.05);
+    box-shadow:0 8px 20px rgba(0,0,0,.3);
+}
+
+footer{
+    margin-top:40px;
+    color:gray;
+    font-size:15px;
+    animation:fadeIn 3s;
+}
+
+
+/* ---------------- KEYFRAMES ---------------- */
+
+@keyframes bgAnimation{
+
+    0%{
+        background-position:0% 50%;
+    }
+
+    50%{
+        background-position:100% 50%;
+    }
+
+    100%{
+        background-position:0% 50%;
+    }
+
+}
+
+@keyframes cardAnimation{
+
+    from{
+        transform:scale(.6);
+        opacity:0;
+    }
+
+    to{
+        transform:scale(1);
+        opacity:1;
+    }
+
+}
+
+@keyframes fadeDown{
+
+    from{
+        transform:translateY(-80px);
+        opacity:0;
+    }
+
+    to{
+        transform:translateY(0);
+        opacity:1;
+    }
+
+}
+
+@keyframes fadeUp{
+
+    from{
+        transform:translateY(60px);
+        opacity:0;
+    }
+
+    to{
+        transform:translateY(0);
+        opacity:1;
+    }
+
+}
+
+@keyframes fadeIn{
+
+    from{
+        opacity:0;
+    }
+
+    to{
+        opacity:1;
+    }
+
+}
+
+
+/* ---------------- MEDIA QUERY ---------------- */
+
+@media(max-width:600px){
+
+    .container{
+        width:90%;
+        padding:30px;
+    }
+
+    h1{
+        font-size:40px;
+    }
+
+    p{
+        font-size:16px;
+    }
+
+    a{
+        width:100%;
+        margin:8px 0;
+    }
+
+    footer{
+        font-size:13px;
+    }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>SLMS</h1>
+
+<p>Staff Leave Management System</p>
+
+<a href="{% url 'login' %}">Login</a>
+
+<a href="{% url 'register' %}">Register</a>
+
+<footer>
+© Copyright 2026 Shuyaa | All Rights Reserved
+</footer>
+
+</div>
+
+</body>
+</html>
