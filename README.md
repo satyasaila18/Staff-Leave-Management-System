@@ -180,8 +180,10 @@ Consider using a production database instead of SQLite.
 Avoid committing db.sqlite3.
 Add __pycache__/ to .gitignore.
 Create a requirements.txt file to document project dependencies.
-📌 Future Improvements
 
+
+
+📌 Future Improvements
 Some possible improvements include:
 
 Leave date validation
@@ -192,8 +194,9 @@ Different types of leave
 Improved admin dashboard
 Production database support
 Automated testing
-🎯 Project Purpose
 
+
+🎯 Project Purpose
 This project was developed to practice and demonstrate:
 
 Python programming
